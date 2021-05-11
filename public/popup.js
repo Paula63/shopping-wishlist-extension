@@ -50,7 +50,7 @@ $(document).ready(function () {
     chrome.tabs.getSelected(null, function (tab) {
         var link = document.createElement("a");
         link.href = tab.url;
-        $("#host").html("host: " + tab.url);
+        $("#host").html("Click save to add the following item to your wish board: " + tab.url);
     })
 });
 
