@@ -1,0 +1,77 @@
+<html>
+    <head> 
+        <meta charset="UTF-8">
+
+        <title>Shopping Assistant</title>
+
+        <link href="popup.css" type="text/css" rel="stylesheet" />
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h2 class="header">Save Item</h2>
+            <div class="border"></div>
+            <div class="row">
+                <div class="fieldParams"> 
+                    <p class="fieldTag">Notify me when: </p>
+                </div>
+                <div class="controls">
+                    <label class="radioChoice" for="20%" >
+                        <input type="radio" id="twentyPercent" name="reduction" value="20%" />
+                        20%
+                    </label><br>
+                    <label class="radioChoice" for="50%">
+                        <input type="radio" id="fiftyPercent" name="reduction" value="50%" />
+                        50%
+                    </label><br>
+                    <label class="radioChoice" for="anyChange">
+                        <input type="radio" id="anyChange" name="reduction" value="anyChange" />
+                        Any change
+                    </label>
+                </div>
+                <br>
+                <div class="break"></div>
+                <div class="wishBoardSec" style="display: flex; flex: content; flex-direction: row;">
+                    <p class="titleField">Wish Boards: </p>
+                    <div class="align">
+                        <select id="wishboard-options" name="list" style="margin-left: 10px;" onchange="wishboards">
+                            
+                        </select>  
+                    </div>
+                </div>
+            </div>
+            <div class="productSection">
+                <div style="width: 100%; height: 100%;">
+                    <div style="width: 50%; height: 100%; float: left;" >
+                        <img src="shoes.jpg" alt="item" width="100%" height="100%" />                    
+                    </div>
+                    <div style="width: 50%; height: 100%; float: left;" >
+                        <h4 width="100%" style="height: auto; margin-left: 10px; margin-bottom: 10px; font-size: large;">
+                            "Product Name"
+                        </h4>        
+                        <div width="100%" style="height: auto; margin-left: 10px; font-size: medium;">
+                            "Product Details"
+                        </div>    
+                        <div width="100%" style="height: auto; margin-left: 10px; font-size: small;">
+                            "Price"
+                        </div>           
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="save-btn btn btn-primary" style="float: right; padding-right: 20px; width: 80px; height: 30px; margin-bottom: 20px;">SAVE</button>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+        <script src="firebase.js"></script>
+
+        <script src="popup.js"></script>
+
+    </body>
+</html> 
