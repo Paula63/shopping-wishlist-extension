@@ -32,7 +32,7 @@ function passWishboards(doc){
 
     li.appendChild(title);
 
-    dropdown.appendChild(li)
+    dropdown.appendChild(li);
 
     wishboardOptions.appendChild(dropdown);
 }
@@ -50,12 +50,47 @@ $(document).ready(function () {
     chrome.tabs.getSelected(null, function (tab) {
         var link = document.createElement("a");
         link.href = tab.url;
-        $("#host").html("Click save to add the following item to your wish board: " + tab.url);
-    })
+        $("#host").html("Save item to your wish board: " + tab.url);
+    }) 
 });
 
-// $(document).ready(function() {
-//     $("#wishboard-options").click(function() {
-//         var 
-//     })
-// })
+
+// web scraping
+function newEl(type, attrs={}) {
+    const el = document.createElement(type);
+    for (let attr in attrs) {
+        const value = attrs[attr];
+        if(attr == 'innerHTML') el.innerHTML = value;
+        else el.setAttribute(attr, value);
+    }
+    return el;
+}
+
+async function loadItem() {
+
+    const items = [
+        {name: items.name, img: 'https://', price: items.price}
+    ]
+    
+    const ctr = document.querySelector('#item-image');
+    const card = newEl('img', {src: items.img});
+    ctr.appendChild(card);
+    
+    const cont = document.querySelector('#item-details');
+    const title = newEl('h4', {innerHTML: items.name});
+    const prices = newEl('div', {innerHTML: items.price});
+    cont.appendChild(title);
+    cont.appendChild(prices);
+
+}
+
+
+
+
+
+
+//save new item
+// 4: 02
+function saveItem(){
+
+}
