@@ -40,6 +40,10 @@ db.collection('wishboards').get().then((snapshot) => {
     });
 })
 
-//<select id="wishboard-options" name="list" style="margin-left: 10px;" onchange="wishboardChoices(wishboards)">
-{/* <option value="default">one</option>
-</select>   */}
+$(document).ready(function () {
+    chrome.tabs.getSelected(null, function (tab) {
+        var link = document.createElement("a");
+        link.href = tab.url;
+        $("#host").html("host: " + tab.url);
+    })
+})
