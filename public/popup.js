@@ -23,7 +23,8 @@ const wishboardOptions = document.querySelector('#wishboard-options');
 
 //creating element and rendering wishboards
 function passWishboards(doc){
-    let li = document.createElement('li');
+    let dropdown = document.createElement('div')
+    let li = document.createElement('select');
     let title = document.createElement('option');
 
     li.setAttribute('data-id', doc.id);
@@ -31,13 +32,18 @@ function passWishboards(doc){
 
     li.appendChild(title);
 
-    wishboardOptions.appendChild(li);
+    dropdown.appendChild(li)
+
+    wishboardOptions.appendChild(dropdown);
 }
 
 db.collection('wishboards').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
+    // snapshot.docs.forEach(doc => {
+    //     passWishboards(doc);
+    // });
+    snapshot.docs.map(doc => {
         passWishboards(doc);
-    });
+    })
 })
 
 $(document).ready(function () {
@@ -46,4 +52,10 @@ $(document).ready(function () {
         link.href = tab.url;
         $("#host").html("host: " + tab.url);
     })
-})
+});
+
+// $(document).ready(function() {
+//     $("#wishboard-options").click(function() {
+//         var 
+//     })
+// })
