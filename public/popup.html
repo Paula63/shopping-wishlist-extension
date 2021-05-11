@@ -37,9 +37,8 @@
                 <div class="wishBoardSec" style="display: flex; flex: content; flex-direction: row;">
                     <p class="titleField">Wish Boards: </p>
                     <div class="align">
-                        <select id="wishboard-options" name="list" style="margin-left: 10px;" onchange="wishboards">
-                            
-                        </select>  
+                        <div id="wishboard-options" style="margin-left: 10px;">
+                        </div>  
                     </div>
                 </div>
             </div>
@@ -48,16 +47,15 @@
                     <div style="width: 50%; height: 100%; float: left;" >
                         <img src="shoes.jpg" alt="item" width="100%" height="100%" />                    
                     </div>
-                    <div style="width: 50%; height: 100%; float: left;" >
+                    <div style="width: 50%; height: 100%; float: left; padding-right: 10px;" >
                         <h4 width="100%" style="height: auto; margin-left: 10px; margin-bottom: 10px; font-size: large;">
                             "Product Name"
-                        </h4>        
-                        <div width="100%" style="height: auto; margin-left: 10px; font-size: medium;">
-                            "Product Details"
-                        </div>    
-                        <div width="100%" style="height: auto; margin-left: 10px; font-size: small;">
+                        </h4>           
+                        <div width="100%" style="height: auto; margin-left: 10px; font-size: medium; margin-bottom: 5px;">
                             "Price"
-                        </div>           
+                        </div>   
+                        <div id="host" width="100%" style="height: auto; margin-left: 10px; margin-right: 10px; font-size: small; word-wrap: break-word;">
+                        </div>         
                     </div>
                 </div>
             </div>
@@ -68,6 +66,8 @@
         <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 
         <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script src="firebase.js"></script>
 

@@ -23,7 +23,8 @@ const wishboardOptions = document.querySelector('#wishboard-options');
 
 //creating element and rendering wishboards
 function passWishboards(doc){
-    let li = document.createElement('li');
+    let dropdown = document.createElement('div')
+    let li = document.createElement('select');
     let title = document.createElement('option');
 
     li.setAttribute('data-id', doc.id);
@@ -31,15 +32,30 @@ function passWishboards(doc){
 
     li.appendChild(title);
 
-    wishboardOptions.appendChild(li);
+    dropdown.appendChild(li)
+
+    wishboardOptions.appendChild(dropdown);
 }
 
 db.collection('wishboards').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
+    // snapshot.docs.forEach(doc => {
+    //     passWishboards(doc);
+    // });
+    snapshot.docs.map(doc => {
         passWishboards(doc);
-    });
+    })
 })
 
-//<select id="wishboard-options" name="list" style="margin-left: 10px;" onchange="wishboardChoices(wishboards)">
-{/* <option value="default">one</option>
-</select>   */}
+$(document).ready(function () {
+    chrome.tabs.getSelected(null, function (tab) {
+        var link = document.createElement("a");
+        link.href = tab.url;
+        $("#host").html("Click save to add the following item to your wish board: " + tab.url);
+    })
+});
+
+// $(document).ready(function() {
+//     $("#wishboard-options").click(function() {
+//         var 
+//     })
+// })
