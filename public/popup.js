@@ -23,18 +23,16 @@ const wishboardOptions = document.querySelector('#wishboard-options');
 
 //creating element and rendering wishboards
 function passWishboards(doc){
-    let dropdown = document.createElement('div')
-    let li = document.createElement('select');
+    // let li = document.createElement('select');
     let title = document.createElement('option');
 
-    li.setAttribute('data-id', doc.id);
-    title.textContent = doc.data().title;
+    // li.setAttribute('data-id', doc.id);
+    title.setAttribute = doc.id;
+    title.textContent = doc.data().title.charAt(0) + doc.data().title.slice(1);
 
-    li.appendChild(title);
+    // li.appendChild(title);
 
-    dropdown.appendChild(li);
-
-    wishboardOptions.appendChild(dropdown);
+    wishboardOptions.appendChild(title);
 }
 
 db.collection('wishboards').get().then((snapshot) => {
@@ -46,21 +44,7 @@ db.collection('wishboards').get().then((snapshot) => {
     })
 })
 
-// saving data to the items collection
-db.collection('items').get().then((snap) => {
-    // snapshot.docs.forEach(doc => {
-    //     renderWishboards(doc);
-    // })
-    console.log("items", snap.docs);
-})
-
-db.collection('items').get().then((snap) => {
-    snap.docs.forEach(doc => {
-        console.log("doc", doc.data());
-    });
-})
-
-
+// getting current window address
 $(document).ready(function () {
     chrome.tabs.getSelected(null, function (tab) {
         var link = document.createElement("a");
@@ -99,13 +83,37 @@ async function loadItem() {
 
 }
 
+// saving data to the items collection
+db.collection('items').get().then((snap) => {
+    // snapshot.docs.forEach(doc => {
+    //     renderWishboards(doc);
+    // })
+    console.log("items", snap.docs);
+})
 
+db.collection('items').get().then((snap) => {
+    snap.docs.forEach(doc => {
+        console.log("doc", doc.data());
+    });
+})
 
+const itemName = document.getElementById('itemName');
+const itemURL = document.getElementById('host');
+const radio = document.getElementById('radio-choice');
+const submit = document.getElementById('submit');
 
-
-
-//save new item
-// 4: 02
-function saveItem(){
-
-}
+submit.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('items').add({
+        displayName: itemName.value,
+        location: itemURL.value,
+        reduction: radio.value
+    })
+    .then(() => {console.log("data saved")})
+    .catch(error => {console.log(error)})
+    // db.collection("items").add({
+    //     displayName: submitDetails.itemName.value,
+    //     location: submitDetails.host.value,
+    //     reduction: submitDetails.reduction.value
+    // });
+})
