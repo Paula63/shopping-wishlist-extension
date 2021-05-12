@@ -10,3 +10,16 @@ db.collection('wishboards').get().then((snapshot) => {
         console.log("doc", doc.data());
     });
 })
+
+db.collection('items').get().then((snap) => {
+    // snapshot.docs.forEach(doc => {
+    //     renderWishboards(doc);
+    // })
+    console.log("items", snap.docs);
+})
+
+db.collection('items').get().then((snap) => {
+    snap.docs.forEach(doc => {
+        console.log("doc", doc.data());
+    });
+})
