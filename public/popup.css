@@ -1,7 +1,7 @@
 body {
   background-color: #fff;
   width: 350px !important;
-  height: 400px;
+  height: fit-content;
   border-radius: 4px;
 }
 
@@ -82,7 +82,7 @@ body {
 .productSection {
   width: 350px;
   color: #8e8d8a;
-  height: 65%;
+  height: auto;
 }
 
 .btnParam {
