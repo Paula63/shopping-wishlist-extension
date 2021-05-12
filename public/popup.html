@@ -14,52 +14,55 @@
         <div class="container">
             <h2 class="header">Save Item</h2>
             <div class="border"></div>
-            <div class="row">
-                <div class="fieldParams"> 
-                    <label class="fieldTag">Notify me when: </label>
-                </div>
-                <div id="radio-choice" class="controls">
-                    <p class="radioChoice" for="20%" >
-                        <input type="radio" id="twentyPercent" name="reduction"  value="20%" />
-                        20%
-                    </p><br>
-                    <p class="radioChoice" for="50%">
-                        <input type="radio" id="fiftyPercent" name="reduction"  value="50%" />
-                        50%
-                    </p><br>
-                    <p class="radioChoice" for="anyChange">
-                        <input type="radio" id="anyChange" name="reduction" value="anyChange" />
-                        Any change
-                    </p>
-                </div>
-                <br>
-                <div class="break"></div>
-                <div class="wishBoardSec" style="display: flex; flex: content; flex-direction: row;">
-                    <label class="titleField">Wish Boards: </label>
-                    <div class="align">
-                        <div style="margin-left: 10px;">
-                            <select id="wishboard-options" name="list" style="margin-left: 10px;">
-                            </select> 
-                        </div>  
+            <form id="add-item">
+                <div class="row">
+                    <div class="fieldParams"> 
+                        <label class="fieldTag">Notify me when: </label>
+                    </div>
+                    <div id="radio-choice" class="controls">
+                        <p class="radioChoice" for="20%" >
+                            <input type="radio" id="twentyPercent" name="twentyPercent"  value="20%" />
+                            20%
+                        </p><br>
+                        <p class="radioChoice" for="50%">
+                            <input type="radio" id="fiftyPercent" name="twentyPercent"  value="50%" />
+                            50%
+                        </p><br>
+                        <p class="radioChoice" for="anyChange">
+                            <input type="radio" id="anyChange" name="twentyPercent" value="anyChange" />
+                            Any change
+                        </p>
+                    </div>
+                    <br>
+                    <div class="break"></div>
+                    <div class="wishBoardSec" style="display: flex; flex: content; flex-direction: row;">
+                        <label class="titleField">Wish Boards: </label>
+                        <div class="align">
+                            <div style="margin-left: 10px;">
+                                <select id="wishboard-options" name="wishboardOptions" style="margin-left: 10px;">
+                                </select> 
+                            </div>  
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="productSection">
-                <div id="item-details">
-                    <div style="padding-right: 15px;" > 
-                        <div id="host" name="host" width="100%" style="height: auto; margin-left: 10px; margin-top: 4px; margin-right: 10px; font-size: 13px; word-wrap: break-word;">
-                        </div>  
-                        <div id="item-name" class="form-group" style="margin-top: 10px;">
-                            <label for="itemName">Give Your Item a Name </label>
-                            <input type="text" class="form-control" name="itemName" id="itemName" placeholder="Item Name" style="width: 97%;">
-                            <small id="note" class="form-text text-muted" style="margin-left: -3px;">This will be used to display the item in your chosen wish board</small>
-                        </div>        
+                <div class="productSection">
+                    <div id="item-details">
+                        <div style="padding-right: 15px;" > 
+                            <label>Save this item to your wish board: </label>
+                            <output id="host" name="host" width="100%" style="height: auto; margin-left: 10px; margin-top: 4px; margin-right: 10px; font-size: 13px; word-wrap: break-word;">
+                            </output>  
+                            <div id="item-name" class="form-group" style="margin-top: 10px;">
+                                <label for="itemName">Give Your Item a Name </label>
+                                <input id="itemName" type="text" name="itemName" placeholder="Item Name" style="width: 97%;">
+                                <small id="note" class="form-text text-muted" style="margin-left: -3px;">This will be used to display the item in your chosen wish board</small>
+                            </div>        
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div style="align-items: center; display: flex; justify-content: center;">
-                <button id="submit" class="save-btn btn btn-primary" style="margin-top: 10px; padding-right: 20px; width: 150px; height: 30px; margin-bottom: 20px;" type="submit">SAVE</button>
-            </div>
+                <div style="align-items: center; display: flex; justify-content: center;">
+                    <button id="addBtn" class="btn btn-primary save-btn " style="margin-top: 10px; padding-right: 20px; width: 150px; height: 30px; margin-bottom: 10px;">SAVE</button>
+                </div>
+            </form>
         </div>
         <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 
@@ -69,7 +72,7 @@
 
         <script src="firebase.js"></script>
 
-        <script src="popup.js"></script>
+        <script src="popup.js" defer></script>
 
     </body>
 </html> 
