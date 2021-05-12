@@ -18,13 +18,13 @@
                 <div class="fieldParams"> 
                     <label class="fieldTag">Notify me when: </label>
                 </div>
-                <div class="controls">
+                <div id="radio-choice" class="controls">
                     <p class="radioChoice" for="20%" >
-                        <input type="radio" id="twentyPercent" name="reduction" value="20%" />
+                        <input type="radio" id="twentyPercent" name="reduction"  value="20%" />
                         20%
                     </p><br>
                     <p class="radioChoice" for="50%">
-                        <input type="radio" id="fiftyPercent" name="reduction" value="50%" />
+                        <input type="radio" id="fiftyPercent" name="reduction"  value="50%" />
                         50%
                     </p><br>
                     <p class="radioChoice" for="anyChange">
@@ -37,7 +37,9 @@
                 <div class="wishBoardSec" style="display: flex; flex: content; flex-direction: row;">
                     <label class="titleField">Wish Boards: </label>
                     <div class="align">
-                        <div id="wishboard-options" style="margin-left: 10px;">
+                        <div style="margin-left: 10px;">
+                            <select id="wishboard-options" name="list" style="margin-left: 10px;">
+                            </select> 
                         </div>  
                     </div>
                 </div>
@@ -45,18 +47,18 @@
             <div class="productSection">
                 <div id="item-details">
                     <div style="padding-right: 15px;" > 
-                        <div id="host" width="100%" style="height: auto; margin-left: 10px; margin-top: 4px; margin-right: 10px; font-size: 13px; word-wrap: break-word;">
+                        <div id="host" name="host" width="100%" style="height: auto; margin-left: 10px; margin-top: 4px; margin-right: 10px; font-size: 13px; word-wrap: break-word;">
                         </div>  
-                        <div class="form-group" style="margin-top: 10px;">
+                        <div id="item-name" class="form-group" style="margin-top: 10px;">
                             <label for="itemName">Give Your Item a Name </label>
-                            <input type="text" class="form-control" id="itemName" placeholder="Item Name" style="width: 97%;">
+                            <input type="text" class="form-control" name="itemName" id="itemName" placeholder="Item Name" style="width: 97%;">
                             <small id="note" class="form-text text-muted" style="margin-left: -3px;">This will be used to display the item in your chosen wish board</small>
                         </div>        
                     </div>
                 </div>
             </div>
-            <div>
-                <button class="save-btn btn btn-primary" style="float: right; padding-right: 20px; width: 80px; height: 30px; margin-bottom: 20px;">SAVE</button>
+            <div style="align-items: center; display: flex; justify-content: center;">
+                <button id="submit" class="save-btn btn btn-primary" style="margin-top: 10px; padding-right: 20px; width: 150px; height: 30px; margin-bottom: 20px;" type="submit">SAVE</button>
             </div>
         </div>
         <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
