@@ -46,6 +46,21 @@ db.collection('wishboards').get().then((snapshot) => {
     })
 })
 
+// saving data to the items collection
+db.collection('items').get().then((snap) => {
+    // snapshot.docs.forEach(doc => {
+    //     renderWishboards(doc);
+    // })
+    console.log("items", snap.docs);
+})
+
+db.collection('items').get().then((snap) => {
+    snap.docs.forEach(doc => {
+        console.log("doc", doc.data());
+    });
+})
+
+
 $(document).ready(function () {
     chrome.tabs.getSelected(null, function (tab) {
         var link = document.createElement("a");
